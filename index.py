@@ -31,5 +31,7 @@ while True:
                     sg.Print(foreign_tag_variable,"\n")
                     excel_without_error = False
         if excel_without_error:
-            sg.Print("The translation is okay ! (really ?)")
+            layout = [[sg.Image('no-error.png')],
+            [sg.Cancel()]]
+            window = sg.Window('Shaker', layout)
 window.close()

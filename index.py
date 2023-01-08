@@ -28,6 +28,10 @@ while True:
                 foreign_tag_variable = re.findall("({.*?}|<.*?>)", foreign_translation) or []
                 if not np.array(np.array(foreign_tag_variable) == np.array(original_tag_variable)).all():
                     sg.Print(str(excel_matrix.iloc[0,i]))
+                    if len(foreign_tag_variable)< len(original_tag_variable):
+                        sg.Print("Tags or variables are missing:", text_color='red')
+                    else:
+                        sg.Print("There is an errors:", text_color='red')
                     sg.Print(foreign_tag_variable,"\n")
                     excel_without_error = False
         if excel_without_error:
